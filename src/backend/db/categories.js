@@ -1,9 +1,8 @@
 import { v4 as uuid } from "uuid";
-import img1 from '../../assets/action.webp'
-import img2 from '../../assets/adventure.webp'
-import img3 from '../../assets/racing.webp'
-import img4 from '../../assets/sports.webp'
-
+import img1 from "../../assets/action.webp";
+import img2 from "../../assets/adventure.webp";
+import img3 from "../../assets/racing.webp";
+import img4 from "../../assets/sports.webp";
 
 export const categories = [
   {

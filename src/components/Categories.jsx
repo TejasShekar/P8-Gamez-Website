@@ -13,7 +13,10 @@ export const Categories = () => {
               src={category.src}
               alt={category.categoryName}
             />
-            <Link to="/products" className="link category-text pos-abs flex flex-col p-1">
+            <Link
+              to="/products"
+              className="link category-text pos-abs flex flex-col p-1"
+            >
               <h2>{category.name}</h2>
             </Link>
           </div>

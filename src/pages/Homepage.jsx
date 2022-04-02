@@ -5,7 +5,7 @@ export const HomePage = () => {
   useDocumentTitle("P8-Gamez | Home");
   return (
     <>
-      <Hero/>
+      <Hero />
       <Categories />
     </>
   );
