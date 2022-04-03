@@ -1,10 +1,13 @@
-import { products } from "../backend/db/products";
+import { useProducts } from "../context/product-context";
 
 export const Products = () => {
+  const { productsList, loader } = useProducts();
+
   return (
     <main className="products">
       <div className="products-container grid g-2 mx-auto my-1">
-        {products.map(({ _id, name, src, price, mrp, discount }) => {
+        {loader && <h2>loading...</h2>}
+        {productsList.map(({ _id, name, src, price, mrp, discount }) => {
           return (
             <div key={_id} className="card pos-relative flex-sbw-c flex-col">
               <img className="card-img" src={src} alt={name} />

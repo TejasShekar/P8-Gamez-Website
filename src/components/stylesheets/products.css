@@ -46,3 +46,7 @@
   line-height:normal;
   margin-top: 1rem;
 }
+
+.card:hover{
+  box-shadow: var(--primary) 0px 0px 15px;
+}
