@@ -1,10 +1,15 @@
+import { Filters, Header, Products } from "../components";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export const ProductListing = () => {
   useDocumentTitle("P8-Gamez | Products");
   return (
     <>
-      <h2>Products Page</h2>
+      <Header />
+      <div className="product-wrapper">
+        <Filters />
+        <Products />
+      </div>
     </>
   );
 };

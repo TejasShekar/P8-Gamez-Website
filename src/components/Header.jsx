@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+export const Header = () => {
   return (
     <>
       <header className="header flex-sbw-c flex-wrap">
-        <Link to="/" className=" brand-name p-sm m-1">
-          <h1>P8 Gamez</h1>
+        <Link to="/" className="p-sm m-1">
+          <h1 className=" brand-name">P8 Gamez</h1>
         </Link>
         <nav className="mx-1">
           <ul className="nav-list flex-sbw">
