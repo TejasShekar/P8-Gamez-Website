@@ -1,6 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { HomePage, ProductListing, Cart, Wishlist, Login, SignUp } from "./pages";
+import {
+  HomePage,
+  ProductListing,
+  Cart,
+  Wishlist,
+  Login,
+  SignUp,
+} from "./pages";
 
 function App() {
   return (
