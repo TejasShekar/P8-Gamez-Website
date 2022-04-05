@@ -20,8 +20,22 @@ export const filterReducer = (state, { type, payload }) => {
           racing: false,
           sports: false,
         },
-        price: 5000,
+        price: 4500,
         rating: 0,
+      };
+    case "SET_SAVED_FILTERS":
+      const savedCategory = Object.values(payload.category);
+      return {
+        ...state,
+        sortBy: payload.sortBy,
+        category: {
+          action: savedCategory[0],
+          adventure: savedCategory[1],
+          racing: savedCategory[2],
+          sports: savedCategory[3],
+        },
+        price: payload.price,
+        rating: payload.rating,
       };
     default:
       return state;

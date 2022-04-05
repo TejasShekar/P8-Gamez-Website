@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { useEffect } from "react";
 import { filterReducer } from "../reducers/filterReducer";
 
 const FilterContext = createContext();
@@ -13,8 +14,19 @@ const FilterProvider = ({ children }) => {
       racing: false,
       sports: false,
     },
-    price: 5000,
+    price: 4500,
     rating: 0,
+  });
+
+  useEffect(() => {
+    filterDispatch({
+      type: "SET_SAVED_FILTERS",
+      payload: JSON.parse(sessionStorage.getItem("filters")),
+    });
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("filters", JSON.stringify(filterState));
   });
 
   return (
