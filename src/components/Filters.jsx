@@ -123,7 +123,7 @@ export const Filters = () => {
         <h3 className="filter-name mb-1">Price</h3>
         <label className="flex-sbw" htmlFor="price-range">
           <span>500</span>
-          <span>5000</span>
+          <span>{price}</span>
         </label>
         <input
           id="price-range"
@@ -131,7 +131,7 @@ export const Filters = () => {
           type="range"
           step="100"
           min="500"
-          max="5000"
+          max="4500"
           value={price}
           onChange={priceHandler}
         />
