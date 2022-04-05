@@ -9,6 +9,7 @@
 }
 
 .link {
+  cursor: pointer;
   color: var(--text-color);
   font-size: 1rem;
 }
@@ -55,5 +56,3 @@
 .category-text:hover {
   opacity: 1;
 }
-
-
