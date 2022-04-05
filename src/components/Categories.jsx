@@ -14,7 +14,7 @@ export const Categories = () => {
     if (pathname === "/") {
       filterDispatch({ type: "CLEAR_FILTERS" });
     }
-  }, []);
+  }, [filterDispatch, pathname]);
 
   // redirect to product page with selected category
   const categoryClickHandler = (categoryName) => {
