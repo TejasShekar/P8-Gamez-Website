@@ -24,3 +24,18 @@
 .cart-summary button {
   width: 100%;
 }
+
+#increment-btn {
+  width: initial;
+}
+#decrement-btn {
+  width: initial;
+}
+
+.disabled {
+  color: var(--light-grey);
+}
+
+.enabled {
+  color: var(--light-white);
+}
