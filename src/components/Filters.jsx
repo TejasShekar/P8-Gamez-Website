@@ -44,6 +44,7 @@ export const Filters = () => {
           Clear All
         </button>
       </div>
+
       {/* Sort By Price Filters */}
       <section className="my-2 mx-0">
         <h3 className="filter-name mb-1">Sort By</h3>
@@ -72,6 +73,7 @@ export const Filters = () => {
           </li>
         </ul>
       </section>
+
       {/* Filter by Category */}
       <section className="my-2 mx-0">
         <h3 className="filter-name mb-1">Category</h3>
@@ -118,6 +120,7 @@ export const Filters = () => {
           </li>
         </ul>
       </section>
+
       {/* Filter by price range */}
       <section className="my-2 mx-0">
         <h3 className="filter-name mb-1">Price</h3>
@@ -136,6 +139,7 @@ export const Filters = () => {
           onChange={priceHandler}
         />
       </section>
+
       {/* Filter by rating */}
       <section className="my-2 mx-0">
         <h3 className="filter-name mb-1">Rating</h3>
