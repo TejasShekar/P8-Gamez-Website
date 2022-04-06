@@ -11,7 +11,10 @@ export const Products = () => {
   return (
     <main className="products">
       <div className="products-container grid g-1 mx-auto my-1">
-        {loader && <h2 className="text-center">L O A D I N G ...</h2>}
+        {!loader && sortedProducts.length === 0 && (
+          <h2>NO MATCHING PRODUCTS</h2>
+        )}
+        {loader && <h2>L O A D I N G ...</h2>}
         {sortedProducts.map((product) => {
           return <ProductCard key={product._id} product={product} />;
         })}
