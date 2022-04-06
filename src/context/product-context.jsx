@@ -21,7 +21,7 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     getProducts();
   }, []);
-  
+
   return (
     <ProductContext.Provider value={{ productsList, loader }}>
       {children}
