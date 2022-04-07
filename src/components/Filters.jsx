@@ -34,7 +34,7 @@ export const Filters = () => {
   };
 
   return (
-    <aside className="side-nav filters px-1 py-2">
+    <aside className="side-nav filters px-1 pt-1">
       <div className="filter-header flex-sbw">
         <h3>Filters</h3>
         <button
@@ -46,7 +46,7 @@ export const Filters = () => {
       </div>
 
       {/* Sort By Price Filters */}
-      <section className="my-2 mx-0">
+      <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Sort By</h3>
         <ul>
           <li>
@@ -75,7 +75,7 @@ export const Filters = () => {
       </section>
 
       {/* Filter by Category */}
-      <section className="my-2 mx-0">
+      <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Category</h3>
         <ul>
           <li>
@@ -122,7 +122,7 @@ export const Filters = () => {
       </section>
 
       {/* Filter by price range */}
-      <section className="my-2 mx-0">
+      <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Price</h3>
         <label className="flex-sbw" htmlFor="price-range">
           <span>500</span>
@@ -141,7 +141,7 @@ export const Filters = () => {
       </section>
 
       {/* Filter by rating */}
-      <section className="my-2 mx-0">
+      <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Rating</h3>
         <label className="flex-sbw" htmlFor="rating">
           <span>0</span>

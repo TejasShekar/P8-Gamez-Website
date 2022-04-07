@@ -23,6 +23,7 @@ const FilterProvider = ({ children }) => {
       type: "SET_SAVED_FILTERS",
       payload: JSON.parse(sessionStorage.getItem("filters")) || filterState,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

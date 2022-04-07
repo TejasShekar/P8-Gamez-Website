@@ -3,3 +3,8 @@
 @import url(./stylesheets/cart.css);
 @import url(./stylesheets/wishlist.css);
 @import url(./stylesheets/auth.css);
+
+/* custom css for keeping toast below navbar */
+.Toastify__toast-container--top-right {
+  top: 6em;
+}
