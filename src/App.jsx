@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import {
   HomePage,
@@ -12,6 +14,18 @@ import {
 function App() {
   return (
     <div className="App">
+      <ToastContainer
+        theme="colored"
+        position="top-right"
+        transition={Zoom}
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        draggable
+        pauseOnHover
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductListing />} />

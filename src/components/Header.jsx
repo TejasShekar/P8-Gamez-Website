@@ -1,9 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import { useCart } from "../context/cart-context";
+import { calcQuantity } from "../utils/cartSummary";
 
 export const Header = () => {
   const location = useLocation();
+  const [search, setSearch] = useState("");
   const { cartState } = useCart();
+  const totalQuantity = calcQuantity(cartState.cartItems);
 
   return (
     <>
@@ -27,7 +31,9 @@ export const Header = () => {
               <input
                 type="search"
                 id="search-box"
+                value={search}
                 placeholder="Search for products"
+                onChange={(e) => setSearch(e.target.value)}
               />
               <i className="fas fa-search search-btn"></i>
             </label>
@@ -45,7 +51,7 @@ export const Header = () => {
                     <i className="fas fa-shopping-cart fa-2x"></i>
                     {cartState.cartItems.length !== 0 && (
                       <div className="notification-icon badge pos-abs flex-center">
-                        {cartState.cartItems.length}
+                        {totalQuantity}
                       </div>
                     )}
                   </div>
@@ -60,9 +66,11 @@ export const Header = () => {
                 <div className="pos-relative">
                   <div>
                     <i className="fas fa-heart fa-2x"></i>
-                    <div className="notification-icon badge pos-abs flex-center">
-                      0
-                    </div>
+                    {cartState.wishlist.length !== 0 && (
+                      <div className="notification-icon badge pos-abs flex-center">
+                        {cartState.wishlist.length}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>

@@ -10,6 +10,16 @@ export const cartReducer = (state, { type, payload }) => {
         ...state,
         cartItems: state.cartItems.filter((item) => item._id !== payload),
       };
+    case "ADD_TO_WISHLIST":
+      return {
+        ...state,
+        wishlist: [...state.wishlist, { ...payload }],
+      };
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: state.wishlist.filter((item) => item._id !== payload),
+      };
     case "INCREMENT_ITEM":
       return {
         ...state,
