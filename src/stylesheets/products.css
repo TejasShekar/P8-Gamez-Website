@@ -6,8 +6,7 @@
 
 .filters {
   grid-area: filters;
-  position: sticky;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .filters button {
@@ -36,7 +35,7 @@
 }
 
 .products-container {
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   max-width: 90%;
   justify-items: center;
 }
