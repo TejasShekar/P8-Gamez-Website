@@ -1,12 +1,44 @@
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart-context";
+import { toast } from "react-toastify";
 
 export const CartItemCard = ({ product }) => {
-  const { cartDispatch } = useCart();
+  const navigate = useNavigate();
+  const {
+    cartState: { wishlist },
+    cartDispatch,
+  } = useCart();
+
   const removeFromCart = (id) => {
     cartDispatch({
       type: "REMOVE_FROM_CART",
       payload: id,
     });
+    toast.success(<div>Removed to Cart</div>);
+  };
+
+  const matchedItemInWishlist = wishlist.find(
+    (item) => item._id === product._id
+  );
+
+  const moveToWishlist = (product) => {
+    if (matchedItemInWishlist === undefined) {
+      cartDispatch({
+        type: "ADD_TO_WISHLIST",
+        payload: product,
+      });
+      cartDispatch({
+        type: "REMOVE_FROM_CART",
+        payload: product._id,
+      });
+    }
+    if (matchedItemInWishlist) {
+      cartDispatch({
+        type: "REMOVE_FROM_CART",
+        payload: product._id,
+      });
+    }
+    toast.success(<div>Moved to Wishlist</div>);
   };
   return (
     <div key={product._id} className="card-horizontal pos-relative flex m-1">
@@ -51,9 +83,21 @@ export const CartItemCard = ({ product }) => {
           >
             Remove from Cart
           </button>
-          <button className="btn py-sm px-1 btn-primary">
-            Move to Wishlist
-          </button>
+          {matchedItemInWishlist ? (
+            <button
+              className="btn py-sm px-1 btn-primary"
+              onClick={() => navigate("/cart")}
+            >
+              Go to Wishlist
+            </button>
+          ) : (
+            <button
+              className="btn py-sm px-1 btn-primary"
+              onClick={() => moveToWishlist(product)}
+            >
+              Move to Wishlist
+            </button>
+          )}
         </div>
       </div>
     </div>
