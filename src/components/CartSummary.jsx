@@ -16,9 +16,6 @@ export const CartSummary = () => {
 
   return (
     <div>
-      {cartItems.length === 0 && (
-        <h2 className="mx-auto">You have no items in the cart</h2>
-      )}
       <div className="cart-summary p-1">
         {cartItems.length !== 0 && (
           <>
