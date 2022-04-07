@@ -21,13 +21,13 @@ const FilterProvider = ({ children }) => {
   useEffect(() => {
     filterDispatch({
       type: "SET_SAVED_FILTERS",
-      payload: JSON.parse(sessionStorage.getItem("filters")),
+      payload: JSON.parse(sessionStorage.getItem("filters")) || filterState,
     });
   }, []);
 
   useEffect(() => {
     sessionStorage.setItem("filters", JSON.stringify(filterState));
-  });
+  }, [filterState]);
 
   return (
     <FilterContext.Provider value={{ filterState, filterDispatch }}>
