@@ -86,7 +86,7 @@ export const CartItemCard = ({ product }) => {
           {matchedItemInWishlist ? (
             <button
               className="btn py-sm px-1 btn-primary"
-              onClick={() => navigate("/cart")}
+              onClick={() => navigate("/wishlist")}
             >
               Go to Wishlist
             </button>
