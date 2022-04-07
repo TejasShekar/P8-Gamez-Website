@@ -18,14 +18,14 @@ export const Header = () => {
               <h2>STORE</h2>
             </Link>
             <Link to="/" className="p-sm ml-3">
-              <h1 className="brand-name">P8 Gamez</h1>
+              <h1 className="brand-name">P8 Games</h1>
             </Link>
           </>
         )}
         {location.pathname !== "/" && (
           <>
             <Link to="/" className="p-sm">
-              <h1 className="brand-name">P8 Gamez</h1>
+              <h1 className="brand-name">P8 Games</h1>
             </Link>
             <label className="flex-center g-1">
               <input
