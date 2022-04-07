@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../context/cart-context";
 
 export const Header = () => {
   const location = useLocation();
+  const { cartState } = useCart();
 
   return (
     <>
@@ -41,9 +43,11 @@ export const Header = () => {
                 <div className="pos-relative">
                   <div>
                     <i className="fas fa-shopping-cart fa-2x"></i>
-                    <div className="notification-icon badge pos-abs flex-center">
-                      0
-                    </div>
+                    {cartState.cartItems.length !== 0 && (
+                      <div className="notification-icon badge pos-abs flex-center">
+                        {cartState.cartItems.length}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>
