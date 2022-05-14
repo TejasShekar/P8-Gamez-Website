@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useFilter } from "../context/filter-context";
 
 export const Filters = () => {
+  const [ratings, setRatings] = useState(0);
   const { filterState, filterDispatch } = useFilter();
   const { price, sortBy, category, rating } = filterState;
   const { action, adventure, racing, sports } = category;
@@ -27,6 +29,7 @@ export const Filters = () => {
   };
 
   const ratingHandler = (e) => {
+    setRatings(e.target.value);
     filterDispatch({
       type: "RATING",
       payload: e.target.value,
@@ -45,7 +48,6 @@ export const Filters = () => {
         </button>
       </div>
 
-      {/* Sort By Price Filters */}
       <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Sort By</h3>
         <ul>
@@ -74,7 +76,6 @@ export const Filters = () => {
         </ul>
       </section>
 
-      {/* Filter by Category */}
       <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Category</h3>
         <ul>
@@ -121,7 +122,6 @@ export const Filters = () => {
         </ul>
       </section>
 
-      {/* Filter by price range */}
       <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Price</h3>
         <label className="flex-sbw" htmlFor="price-range">
@@ -140,22 +140,29 @@ export const Filters = () => {
         />
       </section>
 
-      {/* Filter by rating */}
       <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Rating</h3>
-        <label className="flex-sbw" htmlFor="rating">
-          <span>0</span>
-          <span>5</span>
-        </label>
-        <input
-          id="rating"
-          className="slider m-0"
-          type="range"
-          min="0"
-          max="5"
-          value={rating}
-          onChange={ratingHandler}
-        />
+        <div className="rating-container">
+          {[...Array(5)].map((star, index) => {
+            return (
+              <span key={index}>
+                <label
+                  htmlFor={`star-${index + 1}`}
+                  className={`fas fa-star fa-2x ${
+                    index + 1 <= ratings ? "" : "not-selected"
+                  }`}
+                ></label>
+                <input
+                  type="checkbox"
+                  className="star"
+                  id={`star-${index + 1}`}
+                  value={index + 1}
+                  onClick={ratingHandler}
+                />
+              </span>
+            );
+          })}
+        </div>
       </section>
     </aside>
   );
