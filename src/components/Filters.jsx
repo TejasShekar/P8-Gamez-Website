@@ -4,7 +4,7 @@ import { useFilter } from "../context/filter-context";
 export const Filters = () => {
   const [ratings, setRatings] = useState(0);
   const { filterState, filterDispatch } = useFilter();
-  const { price, sortBy, category, rating } = filterState;
+  const { price, sortBy, category } = filterState;
   const { action, adventure, racing, sports } = category;
 
   const sortByHandler = (e) => {

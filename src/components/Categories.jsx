@@ -9,15 +9,13 @@ export const Categories = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  // This will reset the filterState for proper working of category selected product listing
   useEffect(() => {
     if (pathname === "/") {
       filterDispatch({ type: "CLEAR_FILTERS" });
     }
   }, [filterDispatch, pathname]);
 
-  // redirect to product page with selected category
-  const categoryClickHandler = (categoryName) => {
+  const categoryRedirectHandler = (categoryName) => {
     filterDispatch({ type: "CATEGORY", payload: categoryName });
     navigate("/products");
   };
@@ -31,7 +29,7 @@ export const Categories = () => {
             <img className="category-img" src={src} alt={categoryName} />
             <div
               className="link category-text pos-abs flex flex-col p-1"
-              onClick={() => categoryClickHandler(categoryName)}
+              onClick={() => categoryRedirectHandler(categoryName)}
             >
               <h2>{name}</h2>
             </div>
