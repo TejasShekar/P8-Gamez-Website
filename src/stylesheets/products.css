@@ -30,6 +30,10 @@
   width: 100%;
 }
 
+.not-selected {
+  color: var(--text-color);
+}
+
 .products {
   grid-area: products;
 }
@@ -38,6 +42,7 @@
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   max-width: 90%;
   justify-items: center;
+  gap: 0.5rem;
 }
 
 .card-title,

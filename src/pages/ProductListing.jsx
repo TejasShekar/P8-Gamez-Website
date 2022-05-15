@@ -1,5 +1,6 @@
 import { Filters, Header, Products } from "../components";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { ProductProvider } from "../context/product-context";
 
 export const ProductListing = () => {
   useDocumentTitle("P8-Gamez | Products");
@@ -7,8 +8,10 @@ export const ProductListing = () => {
     <>
       <Header />
       <div className="product-wrapper">
-        <Filters />
-        <Products />
+        <ProductProvider>
+          <Filters />
+          <Products />
+        </ProductProvider>
       </div>
     </>
   );
