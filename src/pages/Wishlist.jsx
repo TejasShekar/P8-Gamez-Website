@@ -1,4 +1,3 @@
-import { Header } from "../components";
 import { WishlistCard } from "../components/WishlistCard";
 import { useCart } from "../context/cart-context";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -11,7 +10,6 @@ export const Wishlist = () => {
 
   return (
     <>
-      <Header />
       {wishlist.length === 0 && (
         <h2 className="text-center m-2">YOU HAVE NO ITEMS IN THE WISHLIST</h2>
       )}

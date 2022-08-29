@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { CartItems, CartSummary, Header } from "../components";
+import { CartItems, CartSummary } from "../components";
 import { useCart } from "../context/cart-context";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
@@ -12,7 +12,6 @@ export const Cart = () => {
   useDocumentTitle("P8-Gamez | Cart");
   return (
     <>
-      <Header />
       {cartItems.length === 0 && (
         <>
           <h2 className="text-center m-2">YOU HAVE NO ITEMS IN THE CART</h2>
@@ -26,10 +25,12 @@ export const Cart = () => {
           </div>
         </>
       )}
-      <main className="flex-c flex-wrap m-1 g-1">
-        <CartItems />
-        <CartSummary />
-      </main>
+      {cartItems.length !== 0 && (
+        <main className="flex-c flex-wrap m-1 g-1">
+          <CartItems />
+          <CartSummary />
+        </main>
+      )}
     </>
   );
 };
