@@ -1,4 +1,4 @@
-import { WishlistCard } from "../components/WishlistCard";
+import { ProductCard } from "../components";
 import { useCart } from "../context/cart-context";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
@@ -15,7 +15,7 @@ export const Wishlist = () => {
       )}
       <div className="wishlist-container grid g-2 mx-auto my-1">
         {wishlist.map((product) => (
-          <WishlistCard key={product._id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </>
