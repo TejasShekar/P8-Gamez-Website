@@ -1,11 +1,27 @@
-import { useProducts } from "../context/product-context";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { ProductCard } from "./ProductCard";
 import { filterProducts } from "../utils/filterProducts";
 import { useFilter } from "../context/filter-context";
 
 export const Products = () => {
-  const { productsList, loader } = useProducts();
   const { filterState } = useFilter();
+  const [productsList, setProducts] = useState([]);
+  const [loader, setLoader] = useState(false);
+
+  const getProducts = async () => {
+    try {
+      setLoader(true);
+      const res = await axios.get("./api/products");
+      setProducts((_prevData) => res.data.products);
+      setLoader(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const sortedProducts = filterProducts(productsList, filterState);
   return (
