@@ -1,24 +1,19 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import {
-  HomePage,
-  ProductListing,
-  Cart,
-  Wishlist,
-  Login,
-  SignUp,
-} from "./pages";
+import { Header } from "./components";
+import { HomePage, ProductListing, Cart, Wishlist, Login, SignUp } from "./pages";
 
 function App() {
+  const { pathname } = useLocation();
   return (
     <div className="App">
       <ToastContainer
         theme="colored"
         position="top-right"
         transition={Zoom}
-        autoClose={2000}
+        autoClose={1500}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
@@ -26,6 +21,7 @@ function App() {
         draggable
         pauseOnHover
       />
+      {pathname !== ("/login" || "/signup") && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductListing />} />
