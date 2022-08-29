@@ -3,7 +3,7 @@ export const filterProducts = (products, filterState) => {
 
   let filteredProducts = products.filter((product) => product.price <= price);
 
-  filteredProducts = filteredProducts.filter((product) => product.rating >= rating);
+  filteredProducts = filteredProducts.filter((product) => product.rating <= rating);
 
   if (sortBy === "LOW_TO_HIGH") {
     filteredProducts = filteredProducts.sort((a, b) => a.price - b.price);

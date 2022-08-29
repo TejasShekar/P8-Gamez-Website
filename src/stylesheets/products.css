@@ -34,6 +34,10 @@
   color: var(--text-color);
 }
 
+.selected {
+  color: var(--yellow);
+}
+
 .products {
   grid-area: products;
 }

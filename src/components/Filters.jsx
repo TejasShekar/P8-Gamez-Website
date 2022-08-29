@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { useFilter } from "../context/filter-context";
 
 export const Filters = () => {
-  const [ratings, setRatings] = useState(0);
   const { filterState, filterDispatch } = useFilter();
-  const { price, sortBy, category } = filterState;
+  const { price, sortBy, category, rating } = filterState;
   const { action, adventure, racing, sports } = category;
 
   const sortByHandler = (e) => {
@@ -29,13 +27,11 @@ export const Filters = () => {
   };
 
   const ratingHandler = (e) => {
-    setRatings(e.target.value);
     filterDispatch({
       type: "RATING",
       payload: e.target.value,
     });
   };
-
   return (
     <aside className="side-nav filters px-1 pt-1">
       <div className="filter-header flex-sbw">
@@ -124,10 +120,7 @@ export const Filters = () => {
 
       <section className="my-1 mx-0">
         <h3 className="filter-name mb-1">Price</h3>
-        <label className="flex-sbw" htmlFor="price-range">
-          <span>500</span>
-          <span>{price}</span>
-        </label>
+        <label className="flex-sbw" htmlFor="price-range"></label>
         <input
           id="price-range"
           className="slider m-0"
@@ -138,6 +131,10 @@ export const Filters = () => {
           value={price}
           onChange={priceHandler}
         />
+        <div className="flex-center flex-col">
+          Showing products under
+          <div style={{ fontWeight: "bold" }}>{price}</div>
+        </div>
       </section>
 
       <section className="my-1 mx-0">
@@ -146,10 +143,11 @@ export const Filters = () => {
           {[...Array(5)].map((star, index) => {
             return (
               <span key={index}>
+                {console.log(rating)}
                 <label
                   htmlFor={`star-${index + 1}`}
                   className={`fas fa-star fa-2x ${
-                    index + 1 <= ratings ? "" : "not-selected"
+                    index + 1 <= rating ? "selected" : "not-selected"
                   }`}
                 ></label>
                 <input

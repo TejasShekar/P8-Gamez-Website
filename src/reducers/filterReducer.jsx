@@ -21,7 +21,7 @@ export const filterReducer = (state, { type, payload }) => {
           sports: false,
         },
         price: 4500,
-        rating: 0,
+        rating: 5,
       };
     case "SET_SAVED_FILTERS":
       const savedCategory = Object.values(payload.category);
