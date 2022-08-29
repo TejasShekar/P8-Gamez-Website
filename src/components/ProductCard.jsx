@@ -10,9 +10,7 @@ export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const matchedItemInCart = cartItems.find((item) => item._id === product._id);
-  const matchedItemInWishlist = wishlist.find(
-    (item) => item._id === product._id
-  );
+  const matchedItemInWishlist = wishlist.find((item) => item._id === product._id);
 
   const addToCart = (product) => {
     cartDispatch({
@@ -48,17 +46,11 @@ export const ProductCard = ({ product }) => {
         </div>
       </div>
       {matchedItemInCart ? (
-        <button
-          className="btn py-sm px-1 btn-primary"
-          onClick={() => navigate("/cart")}
-        >
+        <button className="btn py-sm px-1 btn-primary" onClick={() => navigate("/cart")}>
           Go to Cart
         </button>
       ) : (
-        <button
-          className="btn py-sm px-1 btn-primary"
-          onClick={() => addToCart(product)}
-        >
+        <button className="btn py-sm px-1 btn-primary" onClick={() => addToCart(product)}>
           Add to Cart
         </button>
       )}

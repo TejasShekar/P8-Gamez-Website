@@ -81,9 +81,7 @@ export const loginHandler = function (schema, request) {
       401,
       {},
       {
-        errors: [
-          "The credentials you entered are invalid. Unauthorized access error.",
-        ],
+        errors: ["The credentials you entered are invalid. Unauthorized access error."],
       }
     );
   } catch (error) {

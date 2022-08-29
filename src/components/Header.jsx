@@ -42,10 +42,7 @@ export const Header = () => {
         <nav className="mx-1">
           <ul className="nav-list flex-sbw">
             <li className="mx-0 my-auto">
-              <Link
-                to="/cart"
-                className="link btn btn-icon my-sm mx-1 btn-link"
-              >
+              <Link to="/cart" className="link btn btn-icon my-sm mx-1 btn-link">
                 <div className="pos-relative">
                   <div>
                     <i className="fas fa-shopping-cart fa-2x"></i>
@@ -59,10 +56,7 @@ export const Header = () => {
               </Link>
             </li>
             <li className="mx-1 my-auto">
-              <Link
-                to="/wishlist"
-                className="link btn btn-icon my-sm mx-1 btn-link"
-              >
+              <Link to="/wishlist" className="link btn btn-icon my-sm mx-1 btn-link">
                 <div className="pos-relative">
                   <div>
                     <i className="fas fa-heart fa-2x"></i>
