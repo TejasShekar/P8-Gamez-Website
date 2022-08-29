@@ -4,6 +4,22 @@
 @import url(./stylesheets/wishlist.css);
 @import url(./stylesheets/auth.css);
 
+/* header */
+.nav-list {
+  width: 14rem;
+}
+
+.badge {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.link {
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
 /* custom css for keeping toast below navbar */
 .Toastify__toast-container--top-right {
   top: 6em;
