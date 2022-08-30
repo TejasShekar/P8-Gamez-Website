@@ -1,8 +1,5 @@
 export const calcItemsPrice = (cartItems) => {
-  return cartItems.reduce(
-    (price, item) => (price = price + item.mrp * item.quantity),
-    0
-  );
+  return cartItems.reduce((price, item) => (price = price + item.mrp * item.quantity), 0);
 };
 
 export const calcDiscount = (cartItems, itemsTotal) => {

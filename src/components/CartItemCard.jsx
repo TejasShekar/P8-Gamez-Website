@@ -17,9 +17,7 @@ export const CartItemCard = ({ product }) => {
     toast.success(<div>Removed to Cart</div>);
   };
 
-  const matchedItemInWishlist = wishlist.find(
-    (item) => item._id === product._id
-  );
+  const matchedItemInWishlist = wishlist.find((item) => item._id === product._id);
 
   const moveToWishlist = (product) => {
     if (matchedItemInWishlist === undefined) {
@@ -49,14 +47,10 @@ export const CartItemCard = ({ product }) => {
           <p>
             Quantity:{" "}
             <button
-              className={`btn ${
-                product.quantity <= 1 ? "disabled" : "enabled"
-              }`}
+              className={`btn ${product.quantity <= 1 ? "disabled" : "enabled"}`}
               id="decrement-btn"
               disabled={product.quantity <= 1}
-              onClick={() =>
-                cartDispatch({ type: "DECREMENT_ITEM", payload: product })
-              }
+              onClick={() => cartDispatch({ type: "DECREMENT_ITEM", payload: product })}
             >
               <i className="fas fa-minus-circle px-1 py-0"></i>
             </button>
@@ -64,9 +58,7 @@ export const CartItemCard = ({ product }) => {
             <button
               className="btn enabled"
               id="increment-btn"
-              onClick={() =>
-                cartDispatch({ type: "INCREMENT_ITEM", payload: product })
-              }
+              onClick={() => cartDispatch({ type: "INCREMENT_ITEM", payload: product })}
             >
               <i className="fas fa-plus-circle px-1 py-0"></i>
             </button>

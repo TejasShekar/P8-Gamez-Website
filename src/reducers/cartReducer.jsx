@@ -24,18 +24,14 @@ export const cartReducer = (state, { type, payload }) => {
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item._id === payload._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+          item._id === payload._id ? { ...item, quantity: item.quantity + 1 } : item
         ),
       };
     case "DECREMENT_ITEM":
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item._id === payload._id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
+          item._id === payload._id ? { ...item, quantity: item.quantity - 1 } : item
         ),
       };
 

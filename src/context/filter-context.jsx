@@ -15,7 +15,7 @@ const FilterProvider = ({ children }) => {
       sports: false,
     },
     price: 4500,
-    rating: 0,
+    rating: 5,
   });
 
   useEffect(() => {

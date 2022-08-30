@@ -1,8 +1,5 @@
 import { Server, Model, RestSerializer } from "miragejs";
-import {
-  loginHandler,
-  signupHandler,
-} from "./backend/controllers/AuthController";
+import { loginHandler, signupHandler } from "./backend/controllers/AuthController";
 import {
   addItemToCartHandler,
   getCartItemsHandler,
@@ -48,9 +45,7 @@ export function makeServer({ environment = "development" } = {}) {
         server.create("product", { ...item });
       });
 
-      users.forEach((item) =>
-        server.create("user", { ...item, cart: [], wishlist: [] })
-      );
+      users.forEach((item) => server.create("user", { ...item, cart: [], wishlist: [] }));
 
       categories.forEach((item) => server.create("category", { ...item }));
     },
@@ -73,18 +68,12 @@ export function makeServer({ environment = "development" } = {}) {
       this.get("/user/cart", getCartItemsHandler.bind(this));
       this.post("/user/cart", addItemToCartHandler.bind(this));
       this.post("/user/cart/:productId", updateCartItemHandler.bind(this));
-      this.delete(
-        "/user/cart/:productId",
-        removeItemFromCartHandler.bind(this)
-      );
+      this.delete("/user/cart/:productId", removeItemFromCartHandler.bind(this));
 
       // wishlist routes (private)
       this.get("/user/wishlist", getWishlistItemsHandler.bind(this));
       this.post("/user/wishlist", addItemToWishlistHandler.bind(this));
-      this.delete(
-        "/user/wishlist/:productId",
-        removeItemFromWishlistHandler.bind(this)
-      );
+      this.delete("/user/wishlist/:productId", removeItemFromWishlistHandler.bind(this));
     },
   });
 }
