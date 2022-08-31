@@ -35,3 +35,21 @@
 .btn {
   text-align: center;
 }
+
+.toggle-icon {
+  background: transparent;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1rem;
+  font-size: larger;
+}
+
+.width-full {
+  width: 100%;
+}
+
+.form-error {
+  color: var(--danger);
+  text-align: center;
+  font-size: large;
+}
