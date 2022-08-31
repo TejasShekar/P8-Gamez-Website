@@ -5,25 +5,26 @@ import { filterReducer } from "../reducers/filterReducer";
 const FilterContext = createContext();
 const useFilter = () => useContext(FilterContext);
 
+const initialFilterState = {
+  sortBy: "",
+  category: {
+    action: false,
+    adventure: false,
+    racing: false,
+    sports: false,
+  },
+  price: 4500,
+  rating: 5,
+};
+
 const FilterProvider = ({ children }) => {
-  const [filterState, filterDispatch] = useReducer(filterReducer, {
-    sortBy: "",
-    category: {
-      action: false,
-      adventure: false,
-      racing: false,
-      sports: false,
-    },
-    price: 4500,
-    rating: 5,
-  });
+  const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState);
 
   useEffect(() => {
     filterDispatch({
       type: "SET_SAVED_FILTERS",
-      payload: JSON.parse(sessionStorage.getItem("filters")) || filterState,
+      payload: JSON.parse(sessionStorage.getItem("filters")) || initialFilterState,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
