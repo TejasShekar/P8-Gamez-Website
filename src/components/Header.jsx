@@ -2,13 +2,24 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useCart } from "../context/cart-context";
 import { calcQuantity } from "../utils/cartSummary";
+import { useAuth } from "../context";
+import { toast } from "react-toastify";
 
 export const Header = () => {
   const location = useLocation();
   const [search, setSearch] = useState("");
   const { cartState } = useCart();
   const totalQuantity = calcQuantity(cartState.cartItems);
+  const {
+    authState: { isAuth },
+    authDispatch,
+  } = useAuth();
 
+  const logoutHandler = () => {
+    localStorage.clear();
+    authDispatch({ type: "SET_AUTH_LOGOUT" });
+    toast.info(<div>See you soon !</div>);
+  };
   return (
     <>
       <header className="header flex-sbw-c flex-wrap pl-2">
@@ -70,9 +81,18 @@ export const Header = () => {
               </Link>
             </li>
             <li className="mx-0 my-auto">
-              <Link to="/login" className="link btn py-sm px-1 btn-secondary">
-                Login
-              </Link>
+              {isAuth ? (
+                <button
+                  className="link btn py-sm px-1 btn-secondary"
+                  onClick={logoutHandler}
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link to="/login" className="link btn py-sm px-1 btn-secondary">
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </nav>

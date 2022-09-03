@@ -143,7 +143,6 @@ export const Filters = () => {
           {[...Array(5)].map((star, index) => {
             return (
               <span key={index}>
-                {console.log(rating)}
                 <label
                   htmlFor={`star-${index + 1}`}
                   className={`fas fa-star fa-2x ${
