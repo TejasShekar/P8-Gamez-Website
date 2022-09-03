@@ -21,7 +21,6 @@ export const Login = () => {
         email: userData.email,
         password: userData.password,
       });
-      console.log(data);
       if (status === 200) {
         authDispatch({
           type: "SET_AUTH",
@@ -68,7 +67,7 @@ export const Login = () => {
           <input
             id="u-name"
             className="mb-1"
-            type="text"
+            type="email"
             placeholder="example@gmail.com"
             value={userData.email}
             onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}
