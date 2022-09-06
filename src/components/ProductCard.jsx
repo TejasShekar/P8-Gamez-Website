@@ -63,21 +63,19 @@ export const ProductCard = ({ product }) => {
   const { title, src, price, mrp, rating } = product;
   return (
     <div className="card pos-relative flex-sbw-c flex-col">
-      {pathname !== "/wishlist" && (
-        <div className="card-badge pos-abs py-0 px-sm">
-          <div>({Math.round(((mrp - price) * 100) / mrp)}% OFF)</div>
-        </div>
-      )}
       <img className="card-img" src={src} alt={title} />
       <div className="card-info flex-sbw flex-col">
         <p className="card-title">{title}</p>
-        <div className="price-info flex-center">
-          <div className="final-price">₹{price}</div>
-          <div className="mrp">₹{mrp}</div>
-          <h3>
-            <i className="fas fa-star"></i>
+        <div className="price-info flex-sbw-c">
+          <div className="flex flex-sbw-c">
+            <p className="final-price">₹{price}</p>
+            <p className="mrp">₹{mrp}</p>
+            <p className="discount">({Math.round(((mrp - price) * 100) / mrp)}%)</p>
+          </div>
+          <p>
+            <i className="fas fa-star selected"></i>
             {rating}
-          </h3>
+          </p>
         </div>
       </div>
       {pathname !== "/wishlist" ? (
@@ -89,12 +87,18 @@ export const ProductCard = ({ product }) => {
             {matchedItemInCart ? "Go to Cart" : "Add to Cart"}
           </button>
           <button
-            className="btn py-sm px-1 btn-secondary"
+            className="wishlist-btn flex-center"
             onClick={() =>
-              matchedItemInWishlist ? navigate("/wishlist") : addToWishlist(product)
+              matchedItemInWishlist
+                ? removeFromWishlist(product._id)
+                : addToWishlist(product)
             }
           >
-            {matchedItemInWishlist ? "Go to Wishlist" : "Add to Wishlist"}
+            {matchedItemInWishlist ? (
+              <i class="fas fa-heart"></i>
+            ) : (
+              <i class="far fa-heart"></i>
+            )}
           </button>
         </>
       ) : (
@@ -106,10 +110,10 @@ export const ProductCard = ({ product }) => {
             Move to Cart
           </button>
           <button
-            className="btn py-sm px-1 btn-secondary"
+            className="wishlist-btn"
             onClick={() => removeFromWishlist(product._id)}
           >
-            Remove from Wishlist
+            <i class="fas fa-heart"></i>
           </button>
         </>
       )}
