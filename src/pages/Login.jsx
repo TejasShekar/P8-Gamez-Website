@@ -21,7 +21,6 @@ export const Login = () => {
         email: userData.email,
         password: userData.password,
       });
-      console.log(data);
       if (status === 200) {
         authDispatch({
           type: "SET_AUTH",
@@ -58,7 +57,10 @@ export const Login = () => {
         className="auth-form pos-relative flex-sbw-c flex-col w-90 scale-85"
       >
         <Link to="/" className="brand-name p-sm m-1">
-          <h1>P8 Gamez</h1>
+          <h1 className="brand-name">
+            P8 {""}
+            <i className="fas fa-fire"></i>
+          </h1>
         </Link>
         <div className="flex flex-col m-1 w-90">
           <h2 className="auth-heading mb-1">Login</h2>
@@ -68,7 +70,7 @@ export const Login = () => {
           <input
             id="u-name"
             className="mb-1"
-            type="text"
+            type="email"
             placeholder="example@gmail.com"
             value={userData.email}
             onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))}

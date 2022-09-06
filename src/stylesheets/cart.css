@@ -39,3 +39,7 @@
 .enabled {
   color: var(--light-white);
 }
+
+#decrement-btn:disabled {
+  cursor: not-allowed;
+}

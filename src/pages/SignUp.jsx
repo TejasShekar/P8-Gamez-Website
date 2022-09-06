@@ -7,7 +7,10 @@ export const SignUp = () => {
     <main className="full-height flex-center">
       <div className="auth-form pos-relative flex-sbw-c flex-col w-90 scale-85">
         <Link to="/" className="brand-name p-sm m-1">
-          <h1>P8 Gamez</h1>
+          <h1 className="brand-name">
+            P8 {""}
+            <i className="fas fa-fire"></i>
+          </h1>
         </Link>
         <div className="flex flex-col m-1 w-90">
           <h2 className="auth-heading mb-1">Sign Up</h2>

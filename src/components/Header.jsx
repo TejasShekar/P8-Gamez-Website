@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import { useCart } from "../context/cart-context";
 import { calcQuantity } from "../utils/cartSummary";
 import { useAuth } from "../context";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export const Header = () => {
   const location = useLocation();
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const { cartState } = useCart();
   const totalQuantity = calcQuantity(cartState.cartItems);
   const {
@@ -29,16 +29,23 @@ export const Header = () => {
               <h2>STORE</h2>
             </Link>
             <Link to="/" className="p-sm ml-3">
-              <h1 className="brand-name">P8 Games</h1>
+              <h1 className="brand-name">
+                P8 {""}
+                <i className="fas fa-fire"></i>
+              </h1>
             </Link>
           </>
         )}
         {location.pathname !== "/" && (
           <>
             <Link to="/" className="p-sm">
-              <h1 className="brand-name">P8 Games</h1>
+              <h1 className="brand-name">
+                P8 {""}
+                <i className="fas fa-fire"></i>
+              </h1>
             </Link>
-            <label className="flex-center g-1">
+            {/* Search Feature to be implemented soon */}
+            {/* <label className="flex-center g-1">
               <input
                 type="search"
                 id="search-box"
@@ -47,7 +54,7 @@ export const Header = () => {
                 onChange={(e) => setSearch(e.target.value)}
               />
               <i className="fas fa-search search-btn"></i>
-            </label>
+            </label> */}
           </>
         )}
         <nav className="mx-1">

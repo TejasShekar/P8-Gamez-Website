@@ -30,7 +30,7 @@ export const Products = () => {
         <h2 className="text-center m-2">NO MATCHING PRODUCTS</h2>
       )}
       {loader && <h2 className="text-center m-2">L O A D I N G ...</h2>}
-      <div className="products-container grid mx-auto my-1">
+      <div className="products-container grid m-1">
         {sortedProducts.map((product) => {
           return <ProductCard key={product._id} product={product} />;
         })}

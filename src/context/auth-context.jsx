@@ -9,6 +9,7 @@ const initialAuthState = {
   token: JSON.parse(localStorage.getItem("p8_token")) ?? "",
   userDetails: JSON.parse(localStorage.getItem("p8_userDetails")) ?? {},
   loginError: "",
+  signupError: "",
 };
 
 export const AuthProvider = ({ children }) => {
