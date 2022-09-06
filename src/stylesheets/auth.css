@@ -2,10 +2,6 @@
   height: 100vh;
 }
 
-.brand-name h1 {
-  font-size: 3rem;
-}
-
 .auth-form {
   max-width: 30rem;
   border: 2px solid var(--primary);
