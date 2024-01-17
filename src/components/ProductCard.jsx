@@ -78,44 +78,28 @@ export const ProductCard = ({ product }) => {
           </p>
         </div>
       </div>
+      <button
+        className="wishlist-btn flex-center"
+        onClick={() =>
+          matchedItemInWishlist ? removeFromWishlist(product._id) : addToWishlist(product)
+        }
+      >
+        <i className={`${matchedItemInWishlist ? "fas" : "far"} fa-heart`}></i>
+      </button>
       {pathname !== "/wishlist" ? (
-        <>
-          <button
-            className="btn py-sm px-1 btn-primary"
-            onClick={() => (matchedItemInCart ? navigate("/cart") : addToCart(product))}
-          >
-            {matchedItemInCart ? "Go to Cart" : "Add to Cart"}
-          </button>
-          <button
-            className="wishlist-btn flex-center"
-            onClick={() =>
-              matchedItemInWishlist
-                ? removeFromWishlist(product._id)
-                : addToWishlist(product)
-            }
-          >
-            {matchedItemInWishlist ? (
-              <i class="fas fa-heart"></i>
-            ) : (
-              <i class="far fa-heart"></i>
-            )}
-          </button>
-        </>
+        <button
+          className="btn py-sm px-1 btn-primary"
+          onClick={() => (matchedItemInCart ? navigate("/cart") : addToCart(product))}
+        >
+          {matchedItemInCart ? "Go to Cart" : "Add to Cart"}
+        </button>
       ) : (
-        <>
-          <button
-            className="btn py-sm px-1 btn-primary"
-            onClick={() => moveToCart(product)}
-          >
-            Move to Cart
-          </button>
-          <button
-            className="wishlist-btn"
-            onClick={() => removeFromWishlist(product._id)}
-          >
-            <i class="fas fa-heart"></i>
-          </button>
-        </>
+        <button
+          className="btn py-sm px-1 btn-primary"
+          onClick={() => moveToCart(product)}
+        >
+          Move to Cart
+        </button>
       )}
     </div>
   );
