@@ -58,7 +58,7 @@ export const Header = () => {
           </>
         )}
         <nav className="mx-1">
-          <ul className="nav-list flex-sbw">
+          <ul className="nav-list flex-sbw-c">
             <li className="mx-0 my-auto">
               <Link to="/cart" className="link btn btn-icon my-sm mx-1 btn-link">
                 <div className="pos-relative">
